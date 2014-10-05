@@ -68,6 +68,13 @@ def simulate(startdate, endate, symbols, allocations):
     # returnize0 works on ndarray and not dataframes.
     tsu.returnize0(na_rets)
 
+    #   Standard deviation of daily returns of the total portfolio
+    #   Average daily return of the total portfolio
+    avg = na_rets.mean()
+
+    #   Sharpe ratio (Always assume you have 252 trading days in an year. And risk free rate = 0) of the total portfolio
+    #   Cumulative return of the total portfolio
+
     return 1,2,3,4
 
 # Try executing the function to test
