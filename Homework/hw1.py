@@ -72,7 +72,7 @@ def simulate(startdate, endate, symbols, allocations):
 
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
-    tsu.returnize0(na_rets)
+    tsu.returnize1(na_rets)
     print na_rets
 
     # Filling the data for NAN
