@@ -40,7 +40,8 @@ def simulate(startdate, endate, symbols, allocations):
     ldt_timestamps = du.getNYSEdays(startdate, endate, timeofday)
 
     # Creating an object of the dataaccess class with Yahoo as the source.
-    c_dataobj = da.DataAccess('Yahoo')
+    #c_dataobj = da.DataAccess('Yahoo')
+    c_dataobj = da.DataAccess('Yahoo', cachestalltime=0)
 
     # Keys to be read from the data, it is good to read everything in one go.
     #ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
@@ -77,7 +78,6 @@ def simulate(startdate, endate, symbols, allocations):
     #na_rets = na_price.copy() * allocations
     #na_rets = na_normalized_price.copy() * allocations
     #print na_rets
-
 
     #   Cumulative return of the total portfolio
     cum = na_rets[-1]
