@@ -46,7 +46,7 @@ def simulate(startdate, endate, symbols, allocations):
 
     # Reading the data, now d_data is a dictionary with the keys above.
     # Timestamps and symbols are the ones that were specified before.
-    ldf_data = c_dataobj.get_data(ldt_timestamps, ls_symbols, ls_keys)
+    ldf_data = c_dataobj.get_data(ldt_timestamps, symbols, ls_keys)
     d_data = dict(zip(ls_keys, ldf_data))
 
     # Filling the data for NAN
