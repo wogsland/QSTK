@@ -66,7 +66,7 @@ def simulate(startdate, endate, symbols, allocations):
 
     # Copy the normalized prices to a new ndarry to find returns.
     #na_rets = na_normalized_price.copy()
-    na_rets = na_price.copy()
+    na_rets = na_price.copy() * allocations
     print na_rets
 
     # Calculate the daily returns of the prices. (Inplace calculation)
