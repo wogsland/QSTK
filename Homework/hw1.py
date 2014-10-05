@@ -36,7 +36,7 @@ def simulate(startdate, endate, symbols, allocations):
     timeofday = dt.timedelta(hours=16)
 
     # Get a list of trading days between the start and the end.
-    ldt_timestamps = du.getNYSEdays(startdate, enddate, timeofday)
+    ldt_timestamps = du.getNYSEdays(startdate, endate, timeofday)
 
     # Creating an object of the dataaccess class with Yahoo as the source.
     c_dataobj = da.DataAccess('Yahoo')
