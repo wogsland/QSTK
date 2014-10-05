@@ -68,6 +68,7 @@ def simulate(startdate, endate, symbols, allocations):
     # returnize0 works on ndarray and not dataframes.
     tsu.returnize0(na_rets)
 
+    return 1,2,3,4
+
 # Try executing the function to test
-#simulate('2011-01-01', '2011-12-31', ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
 simulate(dt.datetime(2011,1,1), dt.datetime(2011,12,31), ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
