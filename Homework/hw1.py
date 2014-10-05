@@ -72,4 +72,4 @@ def simulate(startdate, endate, symbols, allocations):
 
 # Try executing the function to test
 vol, daily_ret, sharpe, cum_ret = simulate(dt.datetime(2011,1,1), dt.datetime(2011,12,31), ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
-print "vol = " + vol + "\n"
+print "vol = " + str(vol) + "\n"
