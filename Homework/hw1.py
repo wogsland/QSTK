@@ -75,6 +75,13 @@ def simulate(startdate, endate, symbols, allocations):
     tsu.returnize0(na_rets)
     print na_rets
 
+    # Filling the data for NAN
+    for s_key in na_rets:
+        d_data[s_key] = d_data[s_key].fillna(method='ffill')
+        d_data[s_key] = d_data[s_key].fillna(method='bfill')
+        d_data[s_key] = d_data[s_key].fillna(1.0)
+    print na_rets
+
     #   Standard deviation of daily returns of the total portfolio
     std = na_rets.std()
 
