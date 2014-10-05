@@ -132,3 +132,26 @@ print "sharpe = " + str(sharpe)
 print "Sharpe Ratio: 1.29889334008"
 print "cum_ret = " + str(cum_ret)
 print "Cumulative Return:  1.1960583568"
+
+portfolio = ['AAPL','GLD','GOOG','XOM']
+s = dt.datetime(2011,1,1)
+e = dt.datetime(2011,12,31)
+best_sharpe = 0
+best_allocation = 0
+for w in range(0, 10):
+    for x in range(0, 10):
+        for y in range(0, 10):
+            for z in range(0, 10):
+                w = w/10
+                x = x/10
+                y = y/10
+                z = z/10
+                if (1 == w+x+y+z)
+                    a = [w,x,y,z]
+                    vol, daily_ret, sharpe, cum_ret = simulate(s,e,portfolio,a)
+                    if (sharpe > best_sharpe)
+                        best_sharpe = sharpe
+                        best_allocation = a
+print "\n"
+print "best_sharpe = " + str(best_sharpe)
+print "best_allocation = " + str(best_allocation)
