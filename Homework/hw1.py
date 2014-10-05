@@ -30,12 +30,13 @@ import pandas as pd
 #   Cumulative return of the total portfolio
 def simulate(startdate, endate, symbols, allocations):
     ''' Main Function'''
+    print "In the simulate function\n"
 
     # We need closing prices so the timestamp should be hours=16.
     timeofday = dt.timedelta(hours=16)
 
     # Get a list of trading days between the start and the end.
-    ldt_timestamps = du.getNYSEdays(startdate, enddate, timeofday)
+    ldt_timestamps = du.getNYSEdays(startdate, endate, timeofday)
 
     # Creating an object of the dataaccess class with Yahoo as the source.
     c_dataobj = da.DataAccess('Yahoo')
