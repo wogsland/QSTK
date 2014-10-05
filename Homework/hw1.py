@@ -50,7 +50,7 @@ def simulate(startdate, endate, symbols, allocations):
     # Timestamps and symbols are the ones that were specified before.
     ldf_data = c_dataobj.get_data(ldt_timestamps, symbols, ls_keys)
     d_data = dict(zip(ls_keys, ldf_data))
-    print d_data
+    #print d_data
 
     # Filling the data for NAN
     for s_key in ls_keys:
@@ -66,8 +66,9 @@ def simulate(startdate, endate, symbols, allocations):
 
     # Copy the normalized prices to a new ndarry to find returns.
     #na_rets = na_normalized_price.copy()
-    na_rets = na_price.copy() * allocations
-    print na_rets
+    #na_rets = na_price.copy() * allocations
+    na_rets = na_normalized_price.copy() * allocations
+    #print na_rets
 
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
