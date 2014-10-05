@@ -142,7 +142,7 @@ for w in range(0, 10):
     for x in range(0, 10):
         for y in range(0, 10):
             for z in range(0, 10):
-                w = float(w)/10
+                w = round(float(w)/10,1)
                 print "w = " + str(w)
                 x = x/10
                 y = y/10
