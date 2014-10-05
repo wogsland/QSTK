@@ -90,7 +90,7 @@ def simulate(startdate, endate, symbols, allocations):
     sh = math.sqrt(252)*(avg/std)
 
     #   Cumulative return of the total portfolio
-    cum = na_rets.sum()
+    cum = na_rets.sum(axis=0)
 
     return std,avg,sh,cum
 
