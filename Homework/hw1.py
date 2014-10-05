@@ -43,7 +43,8 @@ def simulate(startdate, endate, symbols, allocations):
     c_dataobj = da.DataAccess('Yahoo')
 
     # Keys to be read from the data, it is good to read everything in one go.
-    ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
+    #ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
+    ls_keys = ['close']
 
     # Reading the data, now d_data is a dictionary with the keys above.
     # Timestamps and symbols are the ones that were specified before.
