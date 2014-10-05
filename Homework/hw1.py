@@ -146,10 +146,10 @@ for w in range(0, 10):
                 x = x/10
                 y = y/10
                 z = z/10
-                if (1 == w+x+y+z)
+                if 1 == w+x+y+z:
                     a = [w,x,y,z]
                     vol, daily_ret, sharpe, cum_ret = simulate(s,e,portfolio,a)
-                    if (sharpe > best_sharpe)
+                    if sharpe > best_sharpe:
                         best_sharpe = sharpe
                         best_allocation = a
 print "\n"
