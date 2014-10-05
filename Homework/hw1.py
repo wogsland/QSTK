@@ -70,17 +70,36 @@ def simulate(startdate, endate, symbols, allocations):
 
     #   Standard deviation of daily returns of the total portfolio
     std = na_rets.std()
+
     #   Average daily return of the total portfolio
     avg = na_rets.mean()
 
     #   Sharpe ratio (Always assume you have 252 trading days in an year. And risk free rate = 0) of the total portfolio
-    #   Cumulative return of the total portfolio
 
-    return std,avg,3,4
+    #   Cumulative return of the total portfolio
+    cum = na_rets.sum()
+
+    return std,avg,3,cum
 
 # Try executing the function to test
 vol, daily_ret, sharpe, cum_ret = simulate(dt.datetime(2011,1,1), dt.datetime(2011,12,31), ['AAPL','GLD','GOOG','XOM'], [0.4,0.4,0.0,0.2])
-print "vol = " + str(vol) + "\n"
-print "daily_ret = " + str(daily_ret) + "\n"
-print "sharpe = " + str(sharpe) + "\n"
-print "cum_ret = " + str(cum_ret) + "\n"
+print "params dt.datetime(2011,1,1), dt.datetime(2011,12,31), ['AAPL','GLD','GOOG','XOM'], [0.4,0.4,0.0,0.2]"
+print "vol = " + str(vol)
+print "Volatility (stdev of daily returns):  0.0101467067654"
+print "daily_ret = " + str(daily_ret)
+print "Average Daily Return:  0.000657261102001"
+print "sharpe = " + str(sharpe)
+print "Sharpe Ratio: 1.02828403099"
+print "cum_ret = " + str(cum_ret)
+print "Cumulative Return:  1.16487261965"
+
+vol, daily_ret, sharpe, cum_ret = simulate(dt.datetime(2010,1,1), dt.datetime(2010,12,31), ['AXP', 'HPQ', 'IBM', 'HNZ'], [0.0, 0.0, 0.0, 1.0])
+print "params dt.datetime(2010,1,1), dt.datetime(2010,12,31), ['AXP', 'HPQ', 'IBM', 'HNZ'], [0.0, 0.0, 0.0, 1.0]"
+print "vol = " + str(vol)
+print "Volatility (stdev of daily returns):  0.00924299255937"
+print "daily_ret = " + str(daily_ret)
+print "Average Daily Return:  0.000756285585593"
+print "sharpe = " + str(sharpe)
+print "Sharpe Ratio: 1.29889334008"
+print "cum_ret = " + str(cum_ret)
+print "Cumulative Return:  1.1960583568"
