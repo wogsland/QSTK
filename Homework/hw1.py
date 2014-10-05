@@ -69,13 +69,14 @@ def simulate(startdate, endate, symbols, allocations):
     tsu.returnize0(na_rets)
 
     #   Standard deviation of daily returns of the total portfolio
+    std = na_rets.stdev()
     #   Average daily return of the total portfolio
     avg = na_rets.mean()
 
     #   Sharpe ratio (Always assume you have 252 trading days in an year. And risk free rate = 0) of the total portfolio
     #   Cumulative return of the total portfolio
 
-    return 1,avg,3,4
+    return std,avg,3,4
 
 # Try executing the function to test
 vol, daily_ret, sharpe, cum_ret = simulate(dt.datetime(2011,1,1), dt.datetime(2011,12,31), ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
