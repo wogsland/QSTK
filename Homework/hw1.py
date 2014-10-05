@@ -138,7 +138,7 @@ s = dt.datetime(2011,1,1)
 e = dt.datetime(2011,12,31)
 best_sharpe = 0
 best_allocation = 0
-for w in range(1, 10):
+for w in range(0, 11):
     w = round(float(w)/10,1)
     print "w = " + str(w)
     for x in range(0, 10):
