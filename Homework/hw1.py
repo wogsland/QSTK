@@ -30,13 +30,13 @@ import pandas as pd
 #   Cumulative return of the total portfolio
 def simulate(startdate, endate, symbols, allocations):
     ''' Main Function'''
-    print "In the simulate function\n"
+    print "In the simulate function.\n"
 
     # We need closing prices so the timestamp should be hours=16.
     timeofday = dt.timedelta(hours=16)
 
     # Get a list of trading days between the start and the end.
-    ldt_timestamps = du.getNYSEdays(startdate, endate, timeofday)
+    ldt_timestamps = du.getNYSEdays(startdate, enddate, timeofday)
 
     # Creating an object of the dataaccess class with Yahoo as the source.
     c_dataobj = da.DataAccess('Yahoo')
@@ -67,3 +67,6 @@ def simulate(startdate, endate, symbols, allocations):
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
     tsu.returnize0(na_rets)
+
+# Try executing the function to test
+simulate('2011-01-01', '2011-12-31', ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
