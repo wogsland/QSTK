@@ -71,14 +71,16 @@ def simulate(startdate, endate, symbols, allocations):
     #na_rets = na_normalized_price.copy() * allocations
     #print na_rets
 
-    # Calculate the daily returns of the prices. (Inplace calculation)
-    # returnize0 works on ndarray and not dataframes.
-    tsu.returnize0(na_rets)
-
     # apply allocations
     na_rets = na_rets * allocations
     na_rets = na_rets.sum(axis=1)
     #print na_rets
+    
+    # Calculate the daily returns of the prices. (Inplace calculation)
+    # returnize0 works on ndarray and not dataframes.
+    tsu.returnize0(na_rets)
+
+
 
     #   Standard deviation of daily returns of the total portfolio
     std = na_rets.std()
@@ -90,7 +92,7 @@ def simulate(startdate, endate, symbols, allocations):
     sh = math.sqrt(252)*(avg/std)
 
     #   Cumulative return of the total portfolio
-    cum = na_rets.sum(axis=0)
+    cum = na_rets.sum()
 
     return std,avg,sh,cum
 
