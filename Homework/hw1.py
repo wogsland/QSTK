@@ -30,7 +30,7 @@ import pandas as pd
 #   Cumulative return of the total portfolio
 def simulate(startdate, endate, symbols, allocations):
     ''' Main Function'''
-    print "In the simulate function.\n"
+    print "In the simulate function."
 
     # We need closing prices so the timestamp should be hours=16.
     timeofday = dt.timedelta(hours=16)
@@ -62,7 +62,8 @@ def simulate(startdate, endate, symbols, allocations):
     na_normalized_price = na_price / na_price[0, :]
 
     # Copy the normalized prices to a new ndarry to find returns.
-    na_rets = na_normalized_price.copy()
+    #na_rets = na_normalized_price.copy()
+    na_rets = na_price.copy()
 
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
