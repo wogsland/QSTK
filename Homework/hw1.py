@@ -61,26 +61,29 @@ def simulate(startdate, endate, symbols, allocations):
     # Getting the numpy ndarray of close prices.
     na_price = d_data['close'].values
 
+    # apply allocations
+    na_price = na_price * allocations
+    na_price = na_price.sum(axis=1)
+    #print na_rets
+
     # Normalizing the prices to start at 1 and see relative returns
     na_normalized_price = na_price / na_price[0, :]
 
     # Copy the normalized prices to a new ndarry to find returns.
-    #na_rets = na_normalized_price.copy()
-    na_rets = na_price.copy()
+    na_rets = na_normalized_price.copy()
+    #na_rets = na_price.copy()
     #na_rets = na_price.copy() * allocations
     #na_rets = na_normalized_price.copy() * allocations
     #print na_rets
 
-    # apply allocations
-    na_rets = na_rets * allocations
-    na_rets = na_rets.sum(axis=1)
-    #print na_rets
-    
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
     tsu.returnize0(na_rets)
 
-
+    # apply allocations
+    #na_rets = na_rets * allocations
+    #na_rets = na_rets.sum(axis=1)
+    #print na_rets
 
     #   Standard deviation of daily returns of the total portfolio
     std = na_rets.std()
