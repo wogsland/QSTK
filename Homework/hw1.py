@@ -78,6 +78,10 @@ def simulate(startdate, endate, symbols, allocations):
     #na_rets = na_normalized_price.copy() * allocations
     #print na_rets
 
+
+    #   Cumulative return of the total portfolio
+    cum = na_rets[-1]
+
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
     tsu.returnize0(na_rets)
@@ -97,7 +101,7 @@ def simulate(startdate, endate, symbols, allocations):
     sh = math.sqrt(252)*(avg/std)
 
     #   Cumulative return of the total portfolio
-    cum = na_rets[-1]
+    #cum = na_rets.sum()
 
     return std,avg,sh,cum
 
