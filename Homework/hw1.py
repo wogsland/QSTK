@@ -61,14 +61,14 @@ def simulate(startdate, endate, symbols, allocations):
     # Getting the numpy ndarray of close prices.
     na_price = d_data['close'].values
     print na_price
-    
+
     # apply allocations
     na_price = na_price * allocations
     na_price = na_price.sum(axis=1)
     print na_price
 
     # Normalizing the prices to start at 1 and see relative returns
-    na_normalized_price = na_price / na_price[0, :]
+    na_normalized_price = na_price / na_price[0]
 
     # Copy the normalized prices to a new ndarry to find returns.
     na_rets = na_normalized_price.copy()
