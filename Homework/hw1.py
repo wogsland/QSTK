@@ -72,14 +72,14 @@ def simulate(startdate, endate, symbols, allocations):
 
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
-    tsu.returnize1(na_rets)
+    tsu.returnize0(na_rets)
     print na_rets
 
     # Filling the data for NAN
-    for s_key in na_rets:
-        d_data[s_key] = d_data[s_key].fillna(method='ffill')
-        d_data[s_key] = d_data[s_key].fillna(method='bfill')
-        d_data[s_key] = d_data[s_key].fillna(1.0)
+    for s_key in ls_keys:
+        na_rets[s_key] = na_rets[s_key].fillna(method='ffill')
+        na_rets[s_key] = na_rets[s_key].fillna(method='bfill')
+        na_rets[s_key] = na_rets[s_key].fillna(0.0)
     print na_rets
 
     #   Standard deviation of daily returns of the total portfolio
