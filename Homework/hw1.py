@@ -65,8 +65,8 @@ def simulate(startdate, endate, symbols, allocations):
     na_normalized_price = na_price / na_price[0, :]
 
     # Copy the normalized prices to a new ndarry to find returns.
-    na_rets = na_normalized_price.copy()
-    #na_rets = na_price.copy()
+    #na_rets = na_normalized_price.copy()
+    na_rets = na_price.copy()
     #na_rets = na_price.copy() * allocations
     #na_rets = na_normalized_price.copy() * allocations
     #print na_rets
