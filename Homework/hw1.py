@@ -20,6 +20,7 @@ import QSTK.qstkutil.DataAccess as da
 import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
+import math
 
 # Example call of function:
 # vol, daily_ret, sharpe, cum_ret = simulate(startdate, enddate, ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
@@ -76,7 +77,7 @@ def simulate(startdate, endate, symbols, allocations):
     avg = na_rets.mean()
 
     #   Sharpe ratio (Always assume you have 252 trading days in an year. And risk free rate = 0) of the total portfolio
-    sh = sqrt(252)*(avg/std)
+    sh = math.sqrt(252)*(avg/std)
 
     #   Cumulative return of the total portfolio
     cum = na_rets.sum()
