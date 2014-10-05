@@ -69,7 +69,7 @@ def simulate(startdate, endate, symbols, allocations):
     tsu.returnize0(na_rets)
 
     #   Standard deviation of daily returns of the total portfolio
-    std = na_rets.stdev()
+    std = na_rets.std()
     #   Average daily return of the total portfolio
     avg = na_rets.mean()
 
