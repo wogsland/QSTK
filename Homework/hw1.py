@@ -4,11 +4,11 @@ This source code is released under the New BSD license.  Please see
 http://wiki.quantsoftware.org/index.php?title=QSTK_License
 for license details.
 
-Created on January, 24, 2013
+Created on October 5, 2014 (fork of Examples/Basic/tutorial1.py)
 
-@author: Sourabh Bajaj
-@contact: sourabhbajaj@gatech.edu
-@summary: Example tutorial code.
+@author: Bradley Wogsland
+@contact: bradley@wogsland.org
+@summary: Solution to Homework 1
 '''
 
 # QSTK Imports
@@ -21,24 +21,21 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
 
-print "Pandas Version", pd.__version__
-
-
-def main():
+# Example call of function:
+# vol, daily_ret, sharpe, cum_ret = simulate(startdate, enddate, ['GOOG','AAPL','GLD','XOM'], [0.2,0.3,0.4,0.1])
+# The function should return:
+#   Standard deviation of daily returns of the total portfolio
+#   Average daily return of the total portfolio
+#   Sharpe ratio (Always assume you have 252 trading days in an year. And risk free rate = 0) of the total portfolio
+#   Cumulative return of the total portfolio
+def simulate(startdate, endate, symbols, allocations):
     ''' Main Function'''
 
-    # List of symbols
-    ls_symbols = ["AAPL", "GLD", "GOOG", "$SPX", "XOM"]
-
-    # Start and End date of the charts
-    dt_start = dt.datetime(2006, 1, 1)
-    dt_end = dt.datetime(2010, 12, 31)
-
     # We need closing prices so the timestamp should be hours=16.
-    dt_timeofday = dt.timedelta(hours=16)
+    timeofday = dt.timedelta(hours=16)
 
     # Get a list of trading days between the start and the end.
-    ldt_timestamps = du.getNYSEdays(dt_start, dt_end, dt_timeofday)
+    ldt_timestamps = du.getNYSEdays(startdate, enddate, timeofday)
 
     # Creating an object of the dataaccess class with Yahoo as the source.
     c_dataobj = da.DataAccess('Yahoo')
@@ -60,24 +57,8 @@ def main():
     # Getting the numpy ndarray of close prices.
     na_price = d_data['close'].values
 
-    # Plotting the prices with x-axis=timestamps
-    plt.clf()
-    plt.plot(ldt_timestamps, na_price)
-    plt.legend(ls_symbols)
-    plt.ylabel('Adjusted Close')
-    plt.xlabel('Date')
-    plt.savefig('adjustedclose.pdf', format='pdf')
-
     # Normalizing the prices to start at 1 and see relative returns
     na_normalized_price = na_price / na_price[0, :]
-
-    # Plotting the prices with x-axis=timestamps
-    plt.clf()
-    plt.plot(ldt_timestamps, na_normalized_price)
-    plt.legend(ls_symbols)
-    plt.ylabel('Normalized Close')
-    plt.xlabel('Date')
-    plt.savefig('normalized.pdf', format='pdf')
 
     # Copy the normalized prices to a new ndarry to find returns.
     na_rets = na_normalized_price.copy()
@@ -85,30 +66,3 @@ def main():
     # Calculate the daily returns of the prices. (Inplace calculation)
     # returnize0 works on ndarray and not dataframes.
     tsu.returnize0(na_rets)
-
-    # Plotting the plot of daily returns
-    plt.clf()
-    plt.plot(ldt_timestamps[0:50], na_rets[0:50, 3])  # $SPX 50 days
-    plt.plot(ldt_timestamps[0:50], na_rets[0:50, 4])  # XOM 50 days
-    plt.axhline(y=0, color='r')
-    plt.legend(['$SPX', 'XOM'])
-    plt.ylabel('Daily Returns')
-    plt.xlabel('Date')
-    plt.savefig('rets.pdf', format='pdf')
-
-    # Plotting the scatter plot of daily returns between XOM VS $SPX
-    plt.clf()
-    plt.scatter(na_rets[:, 3], na_rets[:, 4], c='blue')
-    plt.ylabel('XOM')
-    plt.xlabel('$SPX')
-    plt.savefig('scatterSPXvXOM.pdf', format='pdf')
-
-    # Plotting the scatter plot of daily returns between $SPX VS GLD
-    plt.clf()
-    plt.scatter(na_rets[:, 3], na_rets[:, 1], c='blue')  # $SPX v GLD
-    plt.ylabel('GLD')
-    plt.xlabel('$SPX')
-    plt.savefig('scatterSPXvGLD.pdf', format='pdf')
-
-if __name__ == '__main__':
-    main()
