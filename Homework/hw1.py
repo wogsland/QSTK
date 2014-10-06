@@ -142,10 +142,10 @@ for w in range(0, 11):
     w = round(float(w)/10,1)
     #print "w = " + str(w)
     for x in range(0, 11):
+        x = round(float(x)/10,1)
         for y in range(0, 11):
+            y = round(float(y)/10,1)
             for z in range(0, 11):
-                x = round(float(x)/10,1)
-                y = round(float(y)/10,1)
                 z = round(float(z)/10,1)
                 if 1 = w+x+y+z:
                     a = [w,x,y,z]
