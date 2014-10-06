@@ -133,9 +133,9 @@ print "Sharpe Ratio: 1.29889334008"
 print "cum_ret = " + str(cum_ret)
 print "Cumulative Return:  1.1960583568"
 
-portfolio = ['AXP', 'HPQ', 'IBM', 'HNZ']
-s = dt.datetime(2010,1,1)
-e = dt.datetime(2010,12,31)
+portfolio = ['C', 'GS', 'IBM', 'HNZ']
+s = dt.datetime(2011,1,1)
+e = dt.datetime(2011,12,31)
 best_sharpe = 0
 best_allocation = 0
 for w in range(0, 11):
