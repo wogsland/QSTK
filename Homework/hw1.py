@@ -147,7 +147,7 @@ for w in range(0, 11):
             y = round(float(y)/10,1)
             for z in range(0, 11):
                 z = round(float(z)/10,1)
-                if 1 = w+x+y+z:
+                if 1 == w+x+y+z:
                     a = [w,x,y,z]
                     print "trying " + str(a)
                     vol, daily_ret, sharpe, cum_ret = simulate(s,e,portfolio,a)
