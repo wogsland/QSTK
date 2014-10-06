@@ -31,7 +31,7 @@ import math
 #   Cumulative return of the total portfolio
 def simulate(startdate, endate, symbols, allocations):
     ''' Main Function'''
-    print "In the simulate function."
+    #print "In the simulate function."
 
     # We need closing prices so the timestamp should be hours=16.
     timeofday = dt.timedelta(hours=16)
@@ -149,6 +149,7 @@ for w in range(0, 11):
                 z = round(float(z)/10,1)
                 if 1 == w+x+y+z:
                     a = [w,x,y,z]
+                    print "trying " + str(a)
                     vol, daily_ret, sharpe, cum_ret = simulate(s,e,portfolio,a)
                     if sharpe > best_sharpe:
                         best_sharpe = sharpe
