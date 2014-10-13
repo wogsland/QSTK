@@ -65,7 +65,7 @@ def find_events(ls_symbols, d_data):
 
             # Event is found if the symbol is down more then 3% while the
             # market is up more then 2%
-            if f_symprice_yest >= 5 and f_symprice_today < 5:
+            if f_symprice_yest >= 8 and f_symprice_today < 8:
                 df_events[s_sym].ix[ldt_timestamps[i]] = 1
 
     return df_events
