@@ -77,7 +77,7 @@ if __name__ == '__main__':
     ldt_timestamps = du.getNYSEdays(dt_start, dt_end, dt.timedelta(hours=16))
 
     dataobj = da.DataAccess('Yahoo')
-    ls_symbols = dataobj.get_symbols_from_list('sp5002008')
+    ls_symbols = dataobj.get_symbols_from_list('sp5002012')
     ls_symbols.append('SPY')
 
     ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
