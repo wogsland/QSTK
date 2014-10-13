@@ -77,7 +77,7 @@ if __name__ == '__main__':
     ldt_timestamps = du.getNYSEdays(dt_start, dt_end, dt.timedelta(hours=16))
 
     dataobj = da.DataAccess('Yahoo')
-    ls_symbols = dataobj.get_symbols_from_list('sp5002012')
+    ls_symbols = dataobj.get_symbols_from_list('sp5002008')
     ls_symbols.append('SPY')
 
     ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
@@ -92,5 +92,5 @@ if __name__ == '__main__':
     df_events = find_events(ls_symbols, d_data)
     print "Creating Study"
     ep.eventprofiler(df_events, d_data, i_lookback=20, i_lookforward=20,
-                s_filename='SP2012.pdf', b_market_neutral=True, b_errorbars=True,
+                s_filename='SP2008.pdf', b_market_neutral=True, b_errorbars=True,
                 s_market_sym='SPY')
