@@ -65,7 +65,7 @@ def find_events(ls_symbols, d_data):
 
             # Event is found if the symbol is down more then 3% while the
             # market is up more then 2%
-            if f_symprice_yest >= 8 and f_symprice_today < 8:
+            if f_symprice_yest >= 7 and f_symprice_today < 7:
                 df_events[s_sym].ix[ldt_timestamps[i]] = 1
 
     return df_events
@@ -92,5 +92,5 @@ if __name__ == '__main__':
     df_events = find_events(ls_symbols, d_data)
     print "Creating Study"
     ep.eventprofiler(df_events, d_data, i_lookback=20, i_lookforward=20,
-                s_filename='SP2008.pdf', b_market_neutral=True, b_errorbars=True,
+                s_filename='SP2012-7.pdf', b_market_neutral=True, b_errorbars=True,
                 s_market_sym='SPY')
