@@ -33,12 +33,13 @@ if __name__ == '__main__':
   filename = sys.argv[2]
   outfile = sys.argv[3]
   reader = csv.reader(open(filename, 'rU'), delimiter=',')
+  dt_array = []
   i = 1
   for row in reader:
     print row
     dt_array[i] = dt.datetime(2008, 1, 1)
     i = i+1
-  print dt_array  
+  print dt_array
 
   # 2. Read the data
   # 3. Create the matrix of shares
