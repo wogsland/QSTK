@@ -45,7 +45,7 @@ if __name__ == '__main__':
     #inner_array.append(row[4])
     #inner_array.append(row[5])
     #dt_array.append(inner_array)
-    dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])), 16)
+    dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16))
   print dt_array
   dt_array = list(set(dt_array))
   symb_array = list(set(symb_array))
