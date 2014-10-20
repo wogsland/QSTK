@@ -37,9 +37,15 @@ if __name__ == '__main__':
   for row in reader:
     print row
     print row[0]
-    #dt_array.append(dt.datetime(2008, 1, 1))
-    dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
+    inner_array =[]
+    inner_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
+    inner_array.append(row[3])
+    inner_array.append(row[4])
+    inner_array.append(row[5])
+    dt_array.append(inner_array)
+    #dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
   print dt_array
+  dt_array2 = dt_array.copy()
 
   # 2. Read the data
   # 3. Create the matrix of shares
