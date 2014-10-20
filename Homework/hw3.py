@@ -45,7 +45,7 @@ if __name__ == '__main__':
     dt_array.append(inner_array)
     #dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
   print dt_array
-  dt_array2 = dt_array.copy()
+  dt_array2 = list(dt_array)
 
   # 2. Read the data
   # 3. Create the matrix of shares
