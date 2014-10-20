@@ -36,15 +36,7 @@ if __name__ == '__main__':
   dt_array = []
   symb_array = []
   for row in reader:
-    #print row
-    #print row[0]
     symb_array.append(row[3].strip())
-    #inner_array =[]
-    #inner_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
-    #inner_array.append(row[3])
-    #inner_array.append(row[4])
-    #inner_array.append(row[5])
-    #dt_array.append(inner_array)
     dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16))
   print dt_array
   dt_array = list(set(dt_array))
@@ -58,7 +50,8 @@ if __name__ == '__main__':
   print read_dt_array
 
   dataobj = da.DataAccess('Yahoo')
-  ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
+  #ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
+  ls_keys = ['actual_close']
   ldf_data = dataobj.get_data(read_dt_array, symb_array, ls_keys)
   d_data = dict(zip(ls_keys, ldf_data))
   print d_data
@@ -72,11 +65,11 @@ if __name__ == '__main__':
 
   # 3. Create the matrix of shares
   trade_matrix = []
-  for row in dt_array:
+  for row in read_dt_array:
     inner_array = []
-    inner_array.append(row)
+    inner_array.append("id":row)
     for symb in symb_array:
-      inner_array.append(symb)
+      inner_array.append(symb:0)
     trade_matrix.append(inner_array)
   print trade_matrix
 
