@@ -23,6 +23,7 @@ import QSTK.qstkutil.DataAccess as da
 import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import math
 import csv
 import sys
