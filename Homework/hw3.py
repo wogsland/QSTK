@@ -47,6 +47,7 @@ if __name__ == '__main__':
   print dt_array
   symb_array = list(set(symb_array))
   print symb_array
+  print trade_array
 
   # 2. Read the data
   read_dt_array = []
@@ -79,7 +80,7 @@ if __name__ == '__main__':
     if 'BUY' == row[1]:
       shares = row[2]
     else:
-      shares = -row[2]
+      shares = -1 * row[2]
     traded = row[0]
     print traded + " " + shares
     #trade = d_data['actual_close'][traded] * shares
