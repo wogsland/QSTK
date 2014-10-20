@@ -26,6 +26,7 @@ import pandas as pd
 import math
 import csv
 import sys
+import copy
 
 if __name__ == '__main__':
   # 1. Read the dates and symbols
@@ -65,13 +66,18 @@ if __name__ == '__main__':
   print d_data
 
   # 3. Create the matrix of shares
-  trade_matrix = []
-  for row in read_dt_array:
-    inner_array = []
-    inner_array.append(row)
-    for symb in symb_array:
-      inner_array.append(symb)
-    trade_matrix.append(inner_array)
+  #trade_matrix = []
+  #for row in read_dt_array:
+  #  inner_array = []
+  #  inner_array.append(row)
+  #  for symb in symb_array:
+  #    inner_array.append(symb)
+  #  trade_matrix.append(inner_array)
+
+  trade_matrix = copy.deepcopy(d_data)
+  for s_key in ls_keys:
+    trade_matrix[s_key] = 0
+  
   print trade_matrix
 
   # 4. Calculate the cash timeseries
