@@ -72,6 +72,13 @@ if __name__ == '__main__':
   for s_key in ls_keys:
     trade_matrix[s_key] = trade_matrix[s_key] * 0.0
   print trade_matrix
+  for row in reader:
+    if 'BUY' = row[4]:
+      shares = row[5]
+    else:
+      shares = -row[5]
+    trade = d_data['actual_close'][row[3]]*shares
+    print trade
 
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
