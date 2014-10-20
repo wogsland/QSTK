@@ -29,9 +29,9 @@ import sys
 
 if __name__ == '__main__':
   # 1. Read the dates and symbols
-  startcash = sys.argv[0]
-  filename = sys.argv[1]
-  outfile = sys.argv[2]
+  startcash = sys.argv[1]
+  filename = sys.argv[2]
+  outfile = sys.argv[3]
   reader = csv.reader(open(filename, 'rU'), delimiter=',')
   for row in reader:
     print row
