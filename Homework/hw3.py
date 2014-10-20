@@ -57,6 +57,17 @@ if __name__ == '__main__':
     read_dt_array.append(row - dt.timedelta(days=1))
   print read_dt_array
 
+  dataobj = da.DataAccess('Yahoo')
+  ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
+  ldf_data = dataobj.get_data(read_dt_array, symb_array, ls_keys)
+  d_data = dict(zip(ls_keys, ldf_data))
+
+  for s_key in ls_keys:
+      d_data[s_key] = d_data[s_key].fillna(method='ffill')
+      d_data[s_key] = d_data[s_key].fillna(method='bfill')
+      d_data[s_key] = d_data[s_key].fillna(1.0)
+  print d_data
+
   # 3. Create the matrix of shares
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
