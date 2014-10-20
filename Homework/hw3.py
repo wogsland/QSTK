@@ -38,7 +38,7 @@ if __name__ == '__main__':
   for row in reader:
     #print row
     #print row[0]
-    symb_array.append(row[3])
+    symb_array.append(row[3].strip())
     #inner_array =[]
     #inner_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
     #inner_array.append(row[3])
