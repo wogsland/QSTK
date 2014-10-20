@@ -37,9 +37,11 @@ if __name__ == '__main__':
   reader = csv.reader(open(filename, 'rU'), delimiter=',')
   dt_array = []
   symb_array = []
+  trade_array = []
   for row in reader:
     symb_array.append(row[3].strip())
     dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16))
+    trade_array.append([row[3].strip(), row[4].strip(), row[5].strip()])
   print dt_array
   dt_array = sorted(list(set(dt_array)))
   print dt_array
@@ -72,13 +74,14 @@ if __name__ == '__main__':
   for s_key in ls_keys:
     trade_matrix[s_key] = trade_matrix[s_key] * 0.0
   print trade_matrix
-  for row in reader:
+  for row in trade_array:
     print "in reader"
-    if 'BUY' == row[4]:
-      shares = row[5]
+    if 'BUY' == row[1]:
+      shares = row[2]
     else:
-      shares = -row[5]
-    trade = d_data['actual_close'][row[3]]*shares
+      shares = -row[2]
+    traded = row[0]
+    trade = d_data['actual_close'][traded] * shares
     print trade
 
   # 4. Calculate the cash timeseries
