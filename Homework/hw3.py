@@ -63,6 +63,7 @@ if __name__ == '__main__':
   d_data = dict(zip(ls_keys, ldf_data))
   print d_data
 
+  # problem with this fill is it only grabs the previous day in the dataset, not last trading day
   for s_key in ls_keys:
       d_data[s_key] = d_data[s_key].fillna(method='ffill')
       d_data[s_key] = d_data[s_key].fillna(method='bfill')
@@ -70,6 +71,15 @@ if __name__ == '__main__':
   print d_data
 
   # 3. Create the matrix of shares
+  trade_matrix = []
+  for row in dt_array:
+    inner_array = []
+    inner_array.append(row)
+    for symb in symb_array:
+      inner_array.append(symb)
+    trade_matrix.append()
+  print trade_matrix
+  
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
   # 5. Calculate the fund timeseries
