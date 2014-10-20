@@ -53,6 +53,7 @@ if __name__ == '__main__':
   #ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
   ls_keys = ['actual_close']
   ldf_data = dataobj.get_data(read_dt_array, symb_array, ls_keys)
+  print ldf_data
   d_data = dict(zip(ls_keys, ldf_data))
   print d_data
 
@@ -67,9 +68,9 @@ if __name__ == '__main__':
   trade_matrix = []
   for row in read_dt_array:
     inner_array = []
-    inner_array.append("id":row)
+    inner_array.append(row)
     for symb in symb_array:
-      inner_array.append(symb:0)
+      inner_array.append(symb)
     trade_matrix.append(inner_array)
   print trade_matrix
 
