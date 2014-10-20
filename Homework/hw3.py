@@ -76,7 +76,6 @@ if __name__ == '__main__':
     trade_matrix[s_key] = trade_matrix[s_key] * 0.0
   print trade_matrix
   for row in trade_array:
-    print "in reader"
     if 'BUY' == row[1]:
       shares = int(row[2])
     else:
@@ -85,6 +84,7 @@ if __name__ == '__main__':
     print traded + " " + str(shares)
     #trade = d_data['actual_close'][traded] * shares
     #print trade
+  d_data['actual_close']
 
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
