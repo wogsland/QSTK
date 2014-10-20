@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
   trade_matrix = copy.deepcopy(d_data)
   for s_key in ls_keys:
-    trade_matrix[s_key] = trade_matrix[s_key].fillna(0.0)
+    trade_matrix[s_key] = trade_matrix[s_key].fill(0.0)
 
   print trade_matrix
 
