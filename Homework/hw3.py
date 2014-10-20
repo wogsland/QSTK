@@ -73,7 +73,7 @@ if __name__ == '__main__':
     trade_matrix[s_key] = trade_matrix[s_key] * 0.0
   print trade_matrix
   for row in reader:
-    if 'BUY' = row[4]:
+    if 'BUY' == row[4]:
       shares = row[5]
     else:
       shares = -row[5]
