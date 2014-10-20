@@ -38,7 +38,7 @@ if __name__ == '__main__':
     print row
     print row[0]
     #dt_array.append(dt.datetime(2008, 1, 1))
-    dt_array.append(dt.datetime(row[0], row[1], row[2]))
+    dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
   print dt_array
 
   # 2. Read the data
