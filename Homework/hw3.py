@@ -78,11 +78,11 @@ if __name__ == '__main__':
   for row in trade_array:
     print "in reader"
     if 'BUY' == row[1]:
-      shares = row[2]
+      shares = int(row[2])
     else:
       shares = int(row[2]) * (-1)
     traded = row[0]
-    print traded + " " + shares
+    print traded + " " + str(shares)
     #trade = d_data['actual_close'][traded] * shares
     #print trade
 
