@@ -77,9 +77,9 @@ if __name__ == '__main__':
     inner_array.append(row)
     for symb in symb_array:
       inner_array.append(symb)
-    trade_matrix.append()
+    trade_matrix.append(inner_array)
   print trade_matrix
-  
+
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
   # 5. Calculate the fund timeseries
