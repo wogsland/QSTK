@@ -61,6 +61,7 @@ if __name__ == '__main__':
   ls_keys = ['open', 'high', 'low', 'close', 'volume', 'actual_close']
   ldf_data = dataobj.get_data(read_dt_array, symb_array, ls_keys)
   d_data = dict(zip(ls_keys, ldf_data))
+  print d_data
 
   for s_key in ls_keys:
       d_data[s_key] = d_data[s_key].fillna(method='ffill')
