@@ -34,11 +34,12 @@ if __name__ == '__main__':
   outfile = sys.argv[3]
   reader = csv.reader(open(filename, 'rU'), delimiter=',')
   dt_array = []
-  i = 1
+  #i = 1
   for row in reader:
     print row
-    dt_array[i] = dt.datetime(2008, 1, 1)
-    i = i+1
+    #dt_array[i] = dt.datetime(2008, 1, 1)
+    dt_array.append(dt.datetime(2008, 1, 1))
+    #i = i+1
   print dt_array
 
   # 2. Read the data
