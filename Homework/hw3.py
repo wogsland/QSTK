@@ -54,9 +54,9 @@ if __name__ == '__main__':
   # 2. Read the data
   read_dt_array = []
   for row in dt_array:
-    read_dt_array.append(row + dt.timedelta(days=1))
+    read_dt_array.append(row - dt.timedelta(days=1))
   print read_dt_array
-  
+
   # 3. Create the matrix of shares
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
