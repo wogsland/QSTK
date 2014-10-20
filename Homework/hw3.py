@@ -34,21 +34,22 @@ if __name__ == '__main__':
   outfile = sys.argv[3]
   reader = csv.reader(open(filename, 'rU'), delimiter=',')
   dt_array = []
+  symb_array = []
   for row in reader:
-    print row
-    print row[0]
-    inner_array =[]
-    inner_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
-    inner_array.append(row[3])
-    inner_array.append(row[4])
-    inner_array.append(row[5])
-    dt_array.append(inner_array)
-    #dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
+    #print row
+    #print row[0]
+    symb_array.append(row[3])
+    #inner_array =[]
+    #inner_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
+    #inner_array.append(row[3])
+    #inner_array.append(row[4])
+    #inner_array.append(row[5])
+    #dt_array.append(inner_array)
+    dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2])))
   print dt_array
-  trades1 = list(set(dt_array))
-  trades2 = list(set(dt_array))
-  print trades2
-
+  dt_array = list(set(dt_array))
+  symb_array = list(set(symb_array))
+  print symb_array
 
   # 2. Read the data
   # 3. Create the matrix of shares
