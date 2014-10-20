@@ -84,7 +84,7 @@ if __name__ == '__main__':
     print traded + " " + str(shares)
     #trade = d_data['actual_close'][traded] * shares
     #print trade
-  d_data['actual_close']
+  print d_data['actual_close']
 
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
