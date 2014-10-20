@@ -67,20 +67,9 @@ if __name__ == '__main__':
   print d_data
 
   # 3. Create the matrix of shares
-  #trade_matrix = []
-  #for row in read_dt_array:
-  #  inner_array = []
-  #  inner_array.append(row)
-  #  for symb in symb_array:
-  #    inner_array.append(symb)
-  #  trade_matrix.append(inner_array)
-
   trade_matrix = copy.deepcopy(d_data)
-  #trade_matrix = trade_matrix * np.NAN
   for s_key in ls_keys:
-    #trade_matrix[s_key] = trade_matrix[s_key].fillna(0.0)
     trade_matrix[s_key] = trade_matrix[s_key] * 0.0
-
   print trade_matrix
 
   # 4. Calculate the cash timeseries
