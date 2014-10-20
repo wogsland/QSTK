@@ -36,6 +36,7 @@ if __name__ == '__main__':
   dt_array = []
   for row in reader:
     print row
+    print row[0]
     #dt_array.append(dt.datetime(2008, 1, 1))
     dt_array.append(dt.datetime(row[0], row[1], row[2]))
   print dt_array
