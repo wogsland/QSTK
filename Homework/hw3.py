@@ -78,6 +78,7 @@ if __name__ == '__main__':
   for s_key in ls_keys:
     trade_matrix[s_key] = trade_matrix[s_key] * 0.0
   print trade_matrix
+  holdings_matrix = copy.deepcopy(trade_matrix)
   for row in trade_array:
     if 'BUY' == row[1]:
       shares = int(row[2])
@@ -94,5 +95,9 @@ if __name__ == '__main__':
   print trade_matrix
 
   # 4. Calculate the cash timeseries
+  cash = copy.deepcopy(read_dt_array)
+  cash.insert(0,cash[0]-dt.timedelta(days=1))
+  print cash
+
   # 6. Write to CSV
   # 5. Calculate the fund timeseries
