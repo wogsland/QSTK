@@ -42,7 +42,7 @@ if __name__ == '__main__':
     symb_array.append(row[3].strip())
     the_date = dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16)
     dt_array.append(the_date)
-    the_date = row[0]+"-"+row[1]+"-"+row[2]+" 16:00:00"
+    #the_date = row[0]+"-"+row[1]+"-"+row[2]+" 16:00:00"
     trade_array.append([row[3].strip(), row[4].strip(), row[5].strip(), the_date])
   print dt_array
   dt_array = sorted(list(set(dt_array)))
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     else:
       shares = int(row[2]) * (-1)
     traded = row[0]
-    day = row[3]
+    day = string.replace(row[3].isoformat(),"T"," ")
     print traded + " " + str(shares)
     #trade = d_data['actual_close'][traded] * shares
     #print trade
