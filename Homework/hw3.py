@@ -42,6 +42,7 @@ if __name__ == '__main__':
     symb_array.append(row[3].strip())
     the_date = dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16)
     dt_array.append(the_date)
+    the_date = row[0]+"-"+row[1]+"-"+row[2]+" 16:00:00"
     trade_array.append([row[3].strip(), row[4].strip(), row[5].strip(), the_date])
   print dt_array
   dt_array = sorted(list(set(dt_array)))
@@ -87,7 +88,7 @@ if __name__ == '__main__':
     #trade = d_data['actual_close'][traded] * shares
     #print trade
     multi = d_data['actual_close'][traded].mul(shares)
-    print multi['2008-12-02 16:00:00']
+    print multi[day]
 
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
