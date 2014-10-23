@@ -104,7 +104,8 @@ if __name__ == '__main__':
     last_cash = cash[i][1]
     this_date = string.replace(row.isoformat(),"T"," ")
     for symbol in symb_array:
-      last_cash = last_cash - trade_matrix['actual_close'][traded][day]
+      trade_matrix['actual_close'][symbol][this_date]
+      last_cash = last_cash - trade_matrix['actual_close'][symbol][this_date]
     cash.append([this_date,last_cash])
     i = i+1
   print cash
