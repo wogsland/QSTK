@@ -40,8 +40,9 @@ if __name__ == '__main__':
   trade_array = []
   for row in reader:
     symb_array.append(row[3].strip())
-    dt_array.append(dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16))
-    trade_array.append([row[3].strip(), row[4].strip(), row[5].strip()])
+    the_date = dt.datetime(int(row[0]), int(row[1]), int(row[2]), 16)
+    dt_array.append(the_date)
+    trade_array.append([row[3].strip(), row[4].strip(), row[5].strip(), the_date])
   print dt_array
   dt_array = sorted(list(set(dt_array)))
   print dt_array
@@ -81,10 +82,11 @@ if __name__ == '__main__':
     else:
       shares = int(row[2]) * (-1)
     traded = row[0]
+    day = row[3]
     print traded + " " + str(shares)
     #trade = d_data['actual_close'][traded] * shares
     #print trade
-    print d_data['actual_close'][traded].mul(shares) 
+    print d_data['actual_close'][traded][day].mul(shares)
 
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
