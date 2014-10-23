@@ -99,14 +99,14 @@ if __name__ == '__main__':
   first_date = string.replace((read_dt_array[0]-dt.timedelta(days=1)).isoformat(),"T"," ")
   cash = []
   cash.append([first_date,startcash])
-  i=first_date
+  i=0
   for row in read_dt_array:
-    last_cash = cash[i]
+    last_cash = cash[i][startcash]
     this_date = string.replace(row.isoformat(),"T"," ")
-    cash[this_date] = last_cash
     for symbol in symb_array:
-      cash[this_date] = cash[this_date] - trade_matrix['actual_close'][traded][day]
-    i = this_date
+      last_cash = last_cash - trade_matrix['actual_close'][traded][day]
+    cash.append([this_date,last_cash])
+    i = i+1
   print cash
 
   # 6. Write to CSV
