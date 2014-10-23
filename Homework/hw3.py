@@ -84,7 +84,7 @@ if __name__ == '__main__':
     else:
       shares = int(row[2]) * (-1)
     traded = row[0]
-    day = string.replace(row[3].isoformat(),"T"," ")
+    day = string.replace((row[3]-dt.timedelta(days=1)).isoformat(),"T"," ")
     print traded + " " + str(shares)
     #trade = d_data['actual_close'][traded] * shares
     #print trade
