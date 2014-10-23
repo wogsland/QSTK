@@ -90,7 +90,7 @@ if __name__ == '__main__':
     #print trade
     multi = d_data['actual_close'][traded].mul(shares)
     print multi[day]
-    trade_matrix['actual_close'][day][traded] = multi[day]
+    trade_matrix['actual_close'][traded][day] = multi[day]
   print trade_matrix
 
   # 4. Calculate the cash timeseries
