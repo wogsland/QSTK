@@ -99,11 +99,11 @@ if __name__ == '__main__':
   first_date = string.replace((read_dt_array[0]-dt.timedelta(days=1)).isoformat(),"T"," ")
   cash[first_date] = startcash
   i=first_date
-  for row in read_dt_array
+  for row in read_dt_array:
     last_cash = cash[i]
     this_date = string.replace(row.isoformat(),"T"," ")
     cash[this_date] = last_cash
-    for symbol in symb_array
+    for symbol in symb_array:
       cash[this_date] = cash[this_date] - trade_matrix['actual_close'][traded][day]
     i = this_date
   print cash
