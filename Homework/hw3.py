@@ -95,8 +95,17 @@ if __name__ == '__main__':
   print trade_matrix
 
   # 4. Calculate the cash timeseries
-  cash = copy.deepcopy(read_dt_array)
-  cash.insert(0,cash[0]-dt.timedelta(days=1))
+  #cash = copy.deepcopy(read_dt_array)
+  first_date = string.replace((read_dt_array[0]-dt.timedelta(days=1))).isoformat(),"T"," ")
+  cash[first_date] = startcash
+  i=first_date
+  for row in read_dt_array
+    last_cash = cash[i]
+    this_date = string.replace(row.isoformat(),"T"," ")
+    cash[this_date] = last_cash
+    for symbol in symb_array
+      cash[this_date] = cash[this_date] - trade_matrix['actual_close'][traded][day]
+    i = this_date
   print cash
 
   # 6. Write to CSV
