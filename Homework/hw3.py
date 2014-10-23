@@ -28,6 +28,7 @@ import math
 import csv
 import sys
 import copy
+import string
 
 if __name__ == '__main__':
   # 1. Read the dates and symbols
