@@ -98,7 +98,7 @@ if __name__ == '__main__':
   #cash = copy.deepcopy(read_dt_array)
   first_date = string.replace((read_dt_array[0]-dt.timedelta(days=1)).isoformat(),"T"," ")
   cash = []
-  cash[first_date] = startcash
+  cash.append([first_date,startcash])
   i=first_date
   for row in read_dt_array:
     last_cash = cash[i]
@@ -110,4 +110,6 @@ if __name__ == '__main__':
   print cash
 
   # 6. Write to CSV
+
+
   # 5. Calculate the fund timeseries
