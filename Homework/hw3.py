@@ -32,7 +32,7 @@ import string
 
 if __name__ == '__main__':
   # 1. Read the dates and symbols
-  startcash = sys.argv[1]
+  startcash = int(sys.argv[1])
   filename = sys.argv[2]
   outfile = sys.argv[3]
   reader = csv.reader(open(filename, 'rU'), delimiter=',')
@@ -101,7 +101,7 @@ if __name__ == '__main__':
   cash.append([first_date,startcash])
   i=0
   for row in read_dt_array:
-    last_cash = cash[i][startcash]
+    last_cash = cash[i][1]
     this_date = string.replace(row.isoformat(),"T"," ")
     for symbol in symb_array:
       last_cash = last_cash - trade_matrix['actual_close'][traded][day]
