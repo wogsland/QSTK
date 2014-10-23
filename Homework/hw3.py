@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
   # 4. Calculate the cash timeseries
   #cash = copy.deepcopy(read_dt_array)
-  first_date = string.replace((read_dt_array[0]-dt.timedelta(days=1))).isoformat(),"T"," ")
+  first_date = string.replace((read_dt_array[0]-dt.timedelta(days=1)).isoformat(),"T"," ")
   cash[first_date] = startcash
   i=first_date
   for row in read_dt_array
