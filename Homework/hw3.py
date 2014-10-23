@@ -90,6 +90,7 @@ if __name__ == '__main__':
     #print trade
     multi = d_data['actual_close'][traded].mul(shares)
     print multi[day]
+    print d_data['actual_close'][traded][day].mul(shares)
 
   # 4. Calculate the cash timeseries
   # 6. Write to CSV
