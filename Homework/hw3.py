@@ -110,7 +110,7 @@ if __name__ == '__main__':
     i = i+1
   print cash
 
-  # 6. Write to CSV
-
-
   # 5. Calculate the fund timeseries
+
+  
+  # 6. Write to CSV
